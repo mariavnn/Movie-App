@@ -7,12 +7,19 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="bg-darkGreen">
-    <header class="w-full h-autoflex justify-center items-center">
-        <h1 class="mx-4 text-white text-lg font-light">Movie App</h1>
+    <header id="header" class="w-full h-autoflex justify-center items-center">
+        <button class="m-2" id="header-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70703 14.707C7.5195 14.8945 7.26519 14.9998 7.00003 14.9998C6.73487 14.9998 6.48056 14.8945 6.29303 14.707L2.29303 10.707C2.10556 10.5195 2.00024 10.2652 2.00024 10C2.00024 9.73488 2.10556 9.48057 2.29303 9.29304L6.29303 5.29304C6.48163 5.11088 6.73423 5.01009 6.99643 5.01237C7.25863 5.01465 7.50944 5.11981 7.69485 5.30522C7.88026 5.49063 7.98543 5.74144 7.9877 6.00364C7.98998 6.26584 7.88919 6.51844 7.70703 6.70704L5.41403 9.00004H17C17.2652 9.00004 17.5196 9.1054 17.7071 9.29293C17.8947 9.48047 18 9.73482 18 10C18 10.2653 17.8947 10.5196 17.7071 10.7071C17.5196 10.8947 17.2652 11 17 11H5.41403L7.70703 13.293C7.8945 13.4806 7.99982 13.7349 7.99982 14C7.99982 14.2652 7.8945 14.5195 7.70703 14.707Z" fill="#FFFFFF"/>
+            </svg>
+        </button>
+        <h1 id="header-title" class="mx-4 text-white text-lg font-light">Movie App</h1>
+        <h1 id=".header-title--categoryView" class="mx-4 text-white text-lg font-light">Acción</h1>
+
         <div class="flex items-center justify-center">
-            <form class="w-64 h-auto bg-lightGreen flex space-x-2 m-2 justify-center rounded-lg py-1" id="searchForm">
+            <form id="searchForm" class="w-64 h-auto bg-lightGreen flex space-x-2 m-2 justify-center rounded-lg py-1" >
                 <input class="px-2 rounded-lg placeholder:font-light placeholder:text-sm" type="text" placeholder="Movie">
-                <button>
+                <button id="searchBtn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -21,25 +28,29 @@
         </div>
     </header>
     <main>
-        <section class="w-full h-auto p-2 mt-2 flex overflow-x-auto overflow-y-hidden space-x-4 lg:space-x-6 scrollbar" id="categories">
-            <!--
-            <button class="button">
-                <h3 class="button-text">Romance</h3>
-            </button>
-            -->
+        <!--CATEGORIES-->
+        <section class="" id="categoriesPreview">
+            <article class="w-full h-auto p-2 mt-2 flex overflow-x-auto overflow-y-hidden space-x-4 lg:space-x-6 scrollbar" id="categoriesPreview-list">
+                <!--
+                    <button class="button">
+                        <h3 class="button-text">Romance</h3>
+                    </button>
+                -->
+            </article>
         </section>
-    
+        
+        <!--TRENDINGS-->
         <section id="trendingPreview">
-            <div class="flex justify-between mt-2 p-2 items-center font-bold">
+            <div class="flex justify-between m-2 p-2 items-center font-bold">
                 <h1 class="text-white text-2xl font-light">Trending</h1>
-                <button class="flex gap-1 text-xs pt-2 items-center font-light text-beige">See All
+                <button id="trendingPreview-btn" class="flex gap-1 text-xs pt-2 items-center font-light text-beige">See All
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17 8L21 12M21 12L17 16M21 12H3" stroke="#BB8A52" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
 
-            <article id="trendingPreview-movieList" class=" overflow-x-scroll overflow-y-hidden whitespace-normal flex space-x-4 w-full h-auto">
+            <article id="trendingPreview-movieList" class="overflow-x-scroll overflow-y-hidden whitespace-normal flex space-x-4 w-full h-auto">
                 <!--
                 <div class="card-peliculas">
                     <div class="img-peliculas">
@@ -57,6 +68,84 @@
             </article>
            
         </section>
+
+        <section id="genericList" class="genericList-container inactive">
+            <div class="movie-container">
+              <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+            </div>
+        
+            <div class="movie-container">
+              <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+            </div>
+        
+            <div class="movie-container">
+              <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+            </div>
+          </section>
+        
+          <section id="movieDetail" class="movieDetail-container inactive">
+            <h1 class="movieDetail-title">Deadpool</h1>
+            <span class="movieDetail-score">7.6</span>
+            <p class="movieDetail-description">
+              Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
+            </p>
+        
+            <article class="categories-list">
+              <div class="category-container">
+                <h3 id="id28" class="category-title">Romance</h3>
+              </div>
+        
+              <div class="category-container">
+                <h3 id="id16" class="category-title">Drama</h3>
+              </div>
+        
+              <div class="category-container">
+                <h3 id="id14" class="category-title">Acción</h3>
+              </div>
+            </article>
+        
+            <article class="relatedMovies-container">
+              <h2 class="relatedMovies-title">Películas similares</h2>
+        
+              <div class="relatedMovies-scrollContainer">
+                <div class="movie-container">
+                  <img
+                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                    class="movie-img"
+                    alt="Nombre de la película"
+                  />
+                </div>
+                
+                <div class="movie-container">
+                  <img
+                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                    class="movie-img"
+                    alt="Nombre de la película"
+                  />
+                </div>
+                
+                <div class="movie-container">
+                  <img
+                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                    class="movie-img"
+                    alt="Nombre de la película"
+                  />
+                </div>
+              </div>
+            </article>
+          </section>
     
     </main>
     <footer class="w-full gray-color h-5 text-center mt-4">
@@ -66,6 +155,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="private.js"></script>
     <script src="main.js"></script>
+    <script src="nodes.js"></script>
     <script src="navigation.js"></script>
    
 </body>

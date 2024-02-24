@@ -45,7 +45,7 @@ const getCategories = async () =>{
     const movies = data.results;
 
     const categories = data.genres;
-    const categoryContainer = document.getElementById('categories');
+    const categoryContainer = document.getElementById('categoriesPreview-list');
     let view = '';
     try{
         categories.forEach(category =>{
@@ -54,13 +54,13 @@ const getCategories = async () =>{
                     <h3 class="button-text">${category.name}</h3>
                 </button>
             `;
-            categoryContainer.innerHTML = view;
+            categoriesPreviewList.innerHTML = view;
         });
     }catch(error){
         console.log(error);
     }
 }
 
-getTrendingMoviesPreview();
+//getTrendingMoviesPreview();
 
-getCategories();
+//getCategories();

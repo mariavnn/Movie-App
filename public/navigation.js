@@ -20,6 +20,20 @@ function navigator() {
 
 function HomePage(){
     console.log('HOME!!!');
+
+    arrowBtn.classList.add('inactive');
+    headerTitle.classList.remove('inactive');
+    categoriesPreviewSection.remove('inactive');
+    searchForm.classList.remove('inactive');
+
+    trendingPreviewSection.classList.remove('inactive');
+    categoriesPreviewSection.classList.remove('inactive');
+
+    genericSection.classList.add('inactive');
+    movieDetailSection.classList.add('inactive');
+
+    getTrendingMoviesPreview();
+    getCategories();
 }
 
 function categoriesPage(){

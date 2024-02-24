@@ -704,11 +704,6 @@ video {
   color: rgb(187 138 82 / var(--tw-text-opacity));
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -719,13 +714,13 @@ video {
   width: auto;
   height: auto;
   border-radius: .5rem;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   --tw-bg-opacity: 1;
   background-color: #6D9773;
 }
 
 .button-text{
-  font-size: .75rem;
+  font-size: 1rem;
   color: white;
 }
 
@@ -736,6 +731,7 @@ video {
   width: 150px;
   min-width: 150px;
   max-width: 150px;
+  margin: 1rem;
 }
 
 .img-peliculas{
