@@ -1,0 +1,10 @@
+/.vscode
+
+
+/node_modules/
+/public/img
+/svg
+package-lock.json
+package.json
+tailwind.config.js
+/src/css

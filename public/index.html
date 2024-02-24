@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie API</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="bg-darkGreen">
+    <header class="w-full h-autoflex justify-center items-center">
+        <h1 class="mx-4 text-white text-lg font-light">Movie App</h1>
+        <div class="flex items-center justify-center">
+            <form class="w-64 h-auto bg-lightGreen flex space-x-2 m-2 justify-center rounded-lg py-1" id="searchForm">
+                <input class="px-2 rounded-lg placeholder:font-light placeholder:text-sm" type="text" placeholder="Movie">
+                <button>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section class="w-full h-auto p-2 mt-2 flex overflow-x-auto overflow-y-hidden space-x-4 lg:space-x-6 scrollbar" id="categories">
+            <!--
+            <button class="button">
+                <h3 class="button-text">Romance</h3>
+            </button>
+            -->
+        </section>
+    
+        <section id="trendingPreview">
+            <div class="flex justify-between mt-2 p-2 items-center font-bold">
+                <h1 class="text-white text-2xl font-light">Trending</h1>
+                <button class="flex gap-1 text-xs pt-2 items-center font-light text-beige">See All
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 8L21 12M21 12L17 16M21 12H3" stroke="#BB8A52" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <article id="trendingPreview-movieList" class=" overflow-x-scroll overflow-y-hidden whitespace-normal flex space-x-4 w-full h-auto">
+                <!--
+                <div class="card-peliculas">
+                    <div class="img-peliculas">
+                        <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="img"
+                        alt="Nombre de la película"
+                        />
+                    </div>
+                    <div class="flex flex-col items-center space-y-1">
+                        <p class="text-peliculas">Nombre de la pelicula</p>
+                        <p class="text-peliculas">Rating</p>
+                    </div>
+                </div>-->
+            </article>
+           
+        </section>
+    
+    </main>
+    <footer class="w-full gray-color h-5 text-center mt-4">
+        <p class="text-sm text-white font-light">© All rights reserved | <a href="">@mariavnn</a></p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/src/js/private.js"></script>
+    <script src="/src/js/main.js"></script>
+    <script src="/src/js/navigation.js"></script>
+   
+</body>
+</html>
