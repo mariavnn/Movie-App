@@ -18,7 +18,7 @@ const relatedMoviesContainer = document.querySelector('.relatedMovies-scrollCont
 // Elements
 const headerTitle = document.querySelector('#header-title');
 const arrowBtn = document.querySelector('#header-arrow')
-const headerCategoryTitle = document.querySelector('#header-title--categoryView');
+const headerCategoryTitle = document.querySelector('#header-title-categoryView');
 
 const searchFormInput = document.querySelector('#searchForm input');
 const searchFormBtn = document.querySelector('#searchBtn');

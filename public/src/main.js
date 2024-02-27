@@ -13,12 +13,12 @@ const getTrendingMoviesPreview = async () =>{
     const movies = data.results;
 
     console.log({data, movies});
-    const trendingContainer = document.querySelector('#trendingPreview #trendingPreview-movieList');
+    const swipeWrapperTrending = document.querySelector('.swiper-wrapper');
     let view = '';
     try{
         movies.forEach(movie => {
             view += `
-            <div class="card-peliculas">
+            <div class="swiper-slide">
                 <div class="img-peliculas">
                     <img
                     src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"
@@ -26,13 +26,13 @@ const getTrendingMoviesPreview = async () =>{
                     alt="Nombre de la película"
                     />
                 </div>
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center space-y-1">
                     <p class="text-peliculas">${movie.title}</p>
                 </div>
             </div>
             `;
         
-            trendingContainer.innerHTML = view;
+            swipeWrapperTrending.innerHTML = view;
         });
 
     }catch(error){
@@ -45,7 +45,7 @@ const getCategories = async () =>{
     const movies = data.results;
 
     const categories = data.genres;
-    const categoryContainer = document.getElementById('categoriesPreview-list');
+    const swiperCategories = document-querySelector('');
     let view = '';
     try{
         categories.forEach(category =>{
@@ -54,13 +54,11 @@ const getCategories = async () =>{
                     <h3 class="button-text">${category.name}</h3>
                 </button>
             `;
-            categoriesPreviewList.innerHTML = view;
+            swiperCategories.innerHTML = view;
         });
     }catch(error){
         console.log(error);
     }
 }
 
-//getTrendingMoviesPreview();
-
-//getCategories();
+getTrendingMoviesPreview();

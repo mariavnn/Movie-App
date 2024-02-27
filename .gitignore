@@ -1,7 +1,7 @@
 /.vscode
 
 #PRIVATE API KEY
-public/js/private.js
+public/src/private.js
 
 /node_modules/
 /public/img

@@ -2,72 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie API</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body class="bg-darkGreen">
-    <header id="header" class="w-full h-autoflex justify-center items-center">
-        <button class="m-2" id="header-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70703 14.707C7.5195 14.8945 7.26519 14.9998 7.00003 14.9998C6.73487 14.9998 6.48056 14.8945 6.29303 14.707L2.29303 10.707C2.10556 10.5195 2.00024 10.2652 2.00024 10C2.00024 9.73488 2.10556 9.48057 2.29303 9.29304L6.29303 5.29304C6.48163 5.11088 6.73423 5.01009 6.99643 5.01237C7.25863 5.01465 7.50944 5.11981 7.69485 5.30522C7.88026 5.49063 7.98543 5.74144 7.9877 6.00364C7.98998 6.26584 7.88919 6.51844 7.70703 6.70704L5.41403 9.00004H17C17.2652 9.00004 17.5196 9.1054 17.7071 9.29293C17.8947 9.48047 18 9.73482 18 10C18 10.2653 17.8947 10.5196 17.7071 10.7071C17.5196 10.8947 17.2652 11 17 11H5.41403L7.70703 13.293C7.8945 13.4806 7.99982 13.7349 7.99982 14C7.99982 14.2652 7.8945 14.5195 7.70703 14.707Z" fill="#FFFFFF"/>
-            </svg>
-        </button>
-        <h1 id="header-title" class="mx-4 text-white text-lg font-light">Movie App</h1>
-        <h1 id=".header-title--categoryView" class="mx-4 text-white text-lg font-light">Acción</h1>
+<body class="">
+    <header class="h-auto">
+      <button class="mx-2 mt-2 inactive"  id="header-arrow">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70703 14.707C7.5195 14.8945 7.26519 14.9998 7.00003 14.9998C6.73487 14.9998 6.48056 14.8945 6.29303 14.707L2.29303 10.707C2.10556 10.5195 2.00024 10.2652 2.00024 10C2.00024 9.73488 2.10556 9.48057 2.29303 9.29304L6.29303 5.29304C6.48163 5.11088 6.73423 5.01009 6.99643 5.01237C7.25863 5.01465 7.50944 5.11981 7.69485 5.30522C7.88026 5.49063 7.98543 5.74144 7.9877 6.00364C7.98998 6.26584 7.88919 6.51844 7.70703 6.70704L5.41403 9.00004H17C17.2652 9.00004 17.5196 9.1054 17.7071 9.29293C17.8947 9.48047 18 9.73482 18 10C18 10.2653 17.8947 10.5196 17.7071 10.7071C17.5196 10.8947 17.2652 11 17 11H5.41403L7.70703 13.293C7.8945 13.4806 7.99982 13.7349 7.99982 14C7.99982 14.2652 7.8945 14.5195 7.70703 14.707Z" fill="#000000"/>
+        </svg>
+      </button>
+      <div class="mx-2 my-1 flex justify-between">
+          <div class="flex">
+            <div class="">
+              <svg fill="#000000" height="20" width="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                  viewBox="0 0 472.615 472.615" xml:space="preserve">
+                <g>
+                  <g>
+                    <path d="M0,0v472.615h472.615V0H0z M86.161,432H39.213v-46.948h46.947V432z M86.161,345.891H39.213v-46.948h46.947V345.891z
+                      M86.161,259.782H39.213v-46.948h46.947V259.782z M86.161,173.672H39.213v-46.948h46.947V173.672z M86.161,87.563H39.213V40.615
+                      h46.947V87.563z M348.8,452.923H123.815v-206.77H348.8V452.923z M348.8,226.461H123.815V19.692H348.8V226.461z M433.402,432
+                      h-46.948v-46.948h46.948V432z M433.402,345.891h-46.948v-46.948h46.948V345.891z M433.402,259.782h-46.948v-46.948h46.948V259.782
+                      z M433.402,173.672h-46.948v-46.948h46.948V173.672z M433.402,87.563h-46.948V40.615h46.948V87.563z"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            
+            <h1 id="header-title" class="text-md font-bold">Movie App</h1>
+            <h1 id="header-title-categoryView" class="text-md font-bold inactive">Acción</h1>
+          </div>
+          
 
-        <div class="flex items-center justify-center">
-            <form id="searchForm" class="w-64 h-auto bg-lightGreen flex space-x-2 m-2 justify-center rounded-lg py-1" >
-                <input class="px-2 rounded-lg placeholder:font-light placeholder:text-sm" type="text" placeholder="Movie">
-                <button id="searchBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </form>
+          <button class="mr-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+      </div>
+        
+      <!--SEARCH FORM-->
+      <div class="w-full flex justify-end inactive" id="searchForm">
+        <div class="w-60 shadow-lg rounded-md mr-5">
+          <form  class="w-full flex justify-center items-center p-2 space-x-2  shadow-lg">
+            <svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input class="w-4/5 px-1 placeholder:text-sm placeholder:font-light" type="text" placeholder="find movies">
+          </form>
         </div>
+      </div>
     </header>
+
     <main>
         <!--CATEGORIES-->
+         <!--
         <section class="" id="categoriesPreview">
-            <article class="w-full h-auto p-2 mt-2 flex overflow-x-auto overflow-y-hidden space-x-4 lg:space-x-6 scrollbar" id="categoriesPreview-list">
-                <!--
-                    <button class="button">
-                        <h3 class="button-text">Romance</h3>
-                    </button>
-                -->
-            </article>
-        </section>
-        
+          <div id="categoriesPreview-list" class="swiper mySwiper">
+            <div class="swiper-wrapperCategories">
+              <div class="swiper-slide">
+                <button class="button">
+                  <h3 class="button-text">Romance</h3>
+                </button>
+              </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div>
+         
+          <article class="w-full h-auto p-2 mt-2 flex overflow-x-auto overflow-y-hidden space-x-4 lg:space-x-6 scrollbar" id="categoriesPreview-list">
+            <button class="button">
+              <h3 class="button-text">Romance</h3>
+            </button>
+          </article>
+          
+        </section>-->
+
         <!--TRENDINGS-->
         <section id="trendingPreview">
-            <div class="flex justify-between m-2 p-2 items-center font-bold">
-                <h1 class="text-white text-2xl font-light">Trending</h1>
-                <button id="trendingPreview-btn" class="flex gap-1 text-xs pt-2 items-center font-light text-beige">See All
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 8L21 12M21 12L17 16M21 12H3" stroke="#BB8A52" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
+          <div class="flex justify-between p-2 items-center font-bold my-3">
+              <h1 class="text-2xl font-bold">Trending</h1>
+              <button id="trendingPreview-btn" class="flex gap-1 text-xs p-1 items-center font-bold shadow-md rounded-md">See All
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 8L21 12M21 12L17 16M21 12H3" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </button>
+          </div>
 
-            <article id="trendingPreview-movieList" class="overflow-x-scroll overflow-y-hidden whitespace-normal flex space-x-4 w-full h-auto">
-                <!--
-                <div class="card-peliculas">
-                    <div class="img-peliculas">
-                        <img
-                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                        class="img"
-                        alt="Nombre de la película"
-                        />
-                    </div>
-                    <div class="flex flex-col items-center space-y-1">
-                        <p class="text-peliculas">Nombre de la pelicula</p>
-                        <p class="text-peliculas">Rating</p>
-                    </div>
-                </div>-->
-            </article>
-           
+          <div id="trendingPreview-movieList" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="img-peliculas">
+                    <img
+                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                    class="img"
+                    alt="Nombre de la película"
+                    />
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <p class="text-peliculas">Nombre de la pelicula</p>
+                    <p class="text-peliculas">Rating</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div>
         </section>
+
+      
 
         <section id="genericList" class="genericList-container inactive">
             <div class="movie-container">
@@ -148,15 +192,21 @@
           </section>
     
     </main>
-    <footer class="w-full gray-color h-5 text-center mt-4">
+    <footer class="bg-green-950 w-full gray-color h-5 text-center mt-4">
         <p class="text-sm text-white font-light">© All rights reserved | <a href="">@mariavnn</a></p>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="private.js"></script>
-    <script src="main.js"></script>
+    <script src = "src/swiper-bundle.js"></script>
+    <script src = "src/design.js"></script>
+    <script src="src/private.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/nodes.js"></script>
+    <script src="src/navigation.js"></script>
+    <!--
+    
     <script src="nodes.js"></script>
-    <script src="navigation.js"></script>
+    <script src="navigation.js"></script>-->
    
 </body>
 </html>
