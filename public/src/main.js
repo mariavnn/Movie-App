@@ -8,6 +8,28 @@ const api = axios.create({
     },
 });
 
+// UTILS
+/*
+function createMovies(movies, container){
+    container.innerHTML = '';
+
+    movies.forEach(movie =>{
+        const movieContainer = document.createElement('div');
+        movieContainer.classList.add('movie-container');
+
+        const movieImg = document.createElement('img');
+        movieImg.classList.add('movie-img');
+        movieImg.setAttribute(
+            'src',
+            'https://image.tmdb.org/t/p/w300' + movie.poster_path,
+        );
+
+        movieContainer.appendChild(movieImg);
+        container.appendChild(movieContainer);
+    })
+}
+*/
+
 const getTrendingMoviesPreview = async () =>{
     const { data } = await api(`trending/movie/day`);
     const movies = data.results;
@@ -19,22 +41,19 @@ const getTrendingMoviesPreview = async () =>{
         movies.forEach(movie => {
             view += `
             <div class="swiper-slide">
-                <div class="img-peliculas">
+                <div class="movie-container">
                     <img
                     src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"
-                    class="img"
+                    class="movie-img"
                     alt="Nombre de la película"
                     />
-                </div>
-                <div class="flex flex-col items-center space-y-1">
-                    <p class="text-peliculas">${movie.title}</p>
                 </div>
             </div>
             `;
         
             swipeWrapperTrending.innerHTML = view;
         });
-
+    
     }catch(error){
         console.log(error);
     }
@@ -45,20 +64,41 @@ const getCategories = async () =>{
     const movies = data.results;
 
     const categories = data.genres;
-    const swiperCategories = document-querySelector('');
-    let view = '';
+    categoriesPreviewList.innerHTML = '';
     try{
         categories.forEach(category =>{
-            view += `
-                <button class="button">
-                    <h3 class="button-text">${category.name}</h3>
-                </button>
-            `;
-            swiperCategories.innerHTML = view;
+            const categoryBtn = document.createElement('button');
+            const btnText = document.createElement('h3');
+            btnText.textContent = category.name;
+            btnText.classList.add('button-text');
+            categoryBtn.classList.add('button');
+            categoryBtn.addEventListener('click', () =>{
+                location.hash = `#category=${category.id}-${category.name}`
+            })
+            
+            categoryBtn.appendChild(btnText);
+            categoriesPreviewList.appendChild(categoryBtn);
         });
+
     }catch(error){
         console.log(error);
     }
 }
 
+const getMoviesByCategories = async (id) =>{
+    const {data} = await api('discover/movie',{
+        params: {
+            with_genres: id,
+        },
+    });
+
+    const movies = data.results;
+    try{
+        createMovies(movies, genericSection);
+    }catch (error){
+        console.log(error);
+    }
+}
+
 getTrendingMoviesPreview();
+
