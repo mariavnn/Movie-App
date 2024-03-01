@@ -22,7 +22,6 @@ const headerIcon = document.querySelector('#header-icon');
 const arrowBtn = document.querySelector('#header-arrow');
 const headerCategoryTitle = document.querySelector('#header-title-categoryView');
 
-
 const searchFormInput = document.querySelector('#searchForm input');
 const searchFormBtn = document.querySelector('#searchBtn');
 

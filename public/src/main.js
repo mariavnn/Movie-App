@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 // UTILS
-/*
+
 function createMovies(movies, container){
     container.innerHTML = '';
 
@@ -28,7 +28,6 @@ function createMovies(movies, container){
         container.appendChild(movieContainer);
     })
 }
-*/
 
 const getTrendingMoviesPreview = async () =>{
     const { data } = await api(`trending/movie/day`);
@@ -41,13 +40,13 @@ const getTrendingMoviesPreview = async () =>{
         movies.forEach(movie => {
             view += `
             <div class="swiper-slide">
-                <div class="movie-container">
-                    <img
-                    src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"
-                    class="movie-img"
-                    alt="Nombre de la película"
-                    />
-                </div>
+              <div class="movie-container">
+                  <img
+                  src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"
+                  class="movie-img"
+                  alt="Nombre de la película"
+                  />
+              </div>
             </div>
             `;
         
@@ -100,5 +99,32 @@ const getMoviesByCategories = async (id) =>{
     }
 }
 
+
+const getMoviesBySearch = async (query) =>{
+    const { data } = await api('search/movie' , {
+        params: {
+            query,
+        },
+    });
+
+    const movies = data.results;
+
+    try{
+        createMovies(movies, genericSection);
+    }catch(error){
+        console.log(error);
+    }
+}
+
+const getTrendingMovies = async () =>{
+    const { data } = await api('trending/movie/day');
+    const movies = data.results;
+
+    try{
+        createMovies(movies, genericSection)
+    }catch (error){
+        console.log(error);
+    }
+}
 getTrendingMoviesPreview();
 
