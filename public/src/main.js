@@ -40,13 +40,11 @@ const getTrendingMoviesPreview = async () =>{
         movies.forEach(movie => {
             view += `
             <div class="swiper-slide">
-              <div class="movie-container">
-                  <img
-                  src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"
-                  class="movie-img"
-                  alt="Nombre de la película"
-                  />
-              </div>
+                <img
+                src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"
+                class="movie-img"
+                alt="Nombre de la película"
+                />
             </div>
             `;
         

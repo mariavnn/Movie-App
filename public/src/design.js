@@ -1,23 +1,26 @@
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 10,
-  scrollbar: {
-    el: ".swiper-scrollbar",
-    hide: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
   },
   breakpoints: {
-    640: {
-      slidesPerView: 2,
+    "@0.00": {
+      slidesPerView: 1,
       spaceBetween: 10,
     },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 30,
+    "@0.75": {
+      slidesPerView: 2,
+      spaceBetween: 20,
     },
-    1024: {
-      slidesPerView: 5,
+    "@1.00": {
+      slidesPerView: 3,
       spaceBetween: 40,
     },
-  }
+    "@1.50": {
+      slidesPerView: 4,
+      spaceBetween: 50,
+    },
+  },
 });
-
